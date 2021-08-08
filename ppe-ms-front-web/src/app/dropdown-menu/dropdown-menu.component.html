@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col">
+        <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Catégories</button>
+            <a *ngFor="let c of listCategories" class="dropdown-item" href="#">{{ c.designationCategorie }}</a>
+        </div>
+    </div>
+</div> 
+
+<!-- <div class="form-group" [class.has.error]="categorie.touched && categorie.invalid">
+    <label for="Categorie" class="control-label">
+        Categorie
+    </label>
+
+<select id="categorie" name="categorie" [(ngModel)]="Livre.categorie" class="form-control" required #categorie="ngModel"> 
+    <option value="-1">Choisir Catégorie</option>
+    <option *ngFor="let cat of listCategories" [value]="cat.idCategorie">
+        {{ cat.designationCategorie}}
+    </option>
+</select>
+    <span class="help-block" *ngIf="categorie.touched && categorie.invalid">
+        Categorie is required
+    </span>
+</div> -->

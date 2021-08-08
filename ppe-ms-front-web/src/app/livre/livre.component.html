@@ -1,0 +1,41 @@
+<div class="container" *ngIf="listCategories">
+    <div class="input-group">
+        <input id="id_search" name="srch" #srch type="search" class="form-control rounded" placeholder="Chercher livre"
+            aria-label="Search" aria-describedby="search-addon" />
+        <button class="btn btn-primary" (click)="getLivreByName(srch.value)">Chercher</button>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">E-Livre</div>
+        <button class="btn btn-primary" (click)="readLivre()">Tout les
+            livres</button>
+        <div class="panel-body">
+            <span *ngFor="let c of listCategories._embedded.categories" class="mr-3">
+                <button (click)="readLivre(c.idCategorie)"
+                    [ngClass]="c.idCategorie==categorieCourrante?'btn btn-danger':'btn btn-primary'">{{ c.codeCategorie }}&nbsp;
+                    {{c.designationCategorie }}</button>
+            </span>
+        </div>
+        <table class="table" *ngIf="listLivres && listLivres._embedded.livres.length>0">
+            <tr>
+                <th>Code</th>&nbsp;&nbsp;
+                <th>Designation</th>&nbsp;&nbsp;
+                <th>Nom</th>&nbsp;&nbsp;
+                <th>Photo</th>&nbsp;&nbsp;
+                <th>Prix</th>&nbsp;&nbsp;
+                <th>Quantité</th>&nbsp;&nbsp;
+            </tr>
+            <tr *ngFor="let l of listLivres._embedded.livres">
+                <td>{{ l.codeLivre }}</td>&nbsp; &nbsp;
+                <td>{{ l.designationLivre }}</td>&nbsp; &nbsp;
+                <td>{{ l.nomLivre }}</td>&nbsp; &nbsp;
+                <td>{{ l.photoLivre }}</td>&nbsp; &nbsp;
+                <td>{{ l.prixLivre }}</td>&nbsp; &nbsp;
+                <td>{{ l.quantiteLivre }}</td>&nbsp; &nbsp;
+                <td><button class="btn btn-success">Ajouter au panier</button></td>
+                <td><button class="btn btn-warning">Rate</button></td>
+                <td><button class="btn btn-primary" (click)="updateLivre(l.idLivre)">Modifier</button></td>
+                <td><button class="btn btn-danger" (click)="deleteLivre(l.idLivre)">Supprimer</button></td>
+            </tr>
+        </table>
+    </div>
+</div>
