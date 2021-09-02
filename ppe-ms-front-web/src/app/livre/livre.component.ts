@@ -5,6 +5,8 @@ import { LivreServiceService } from 'src/app/shared/livre-service.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogService } from '../shared/dialog.service';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 //import { NotificationService } from '../shared/notification.service';
 
 @Component({
@@ -14,7 +16,7 @@ import { DialogService } from '../shared/dialog.service';
 })
 export class LivreComponent implements OnInit {
 
-
+  rating : number= 0;
   listLivres: any;
   //ttLivres = { id: -1 };
   listCategories: any;
@@ -22,8 +24,9 @@ export class LivreComponent implements OnInit {
   public currCategorie: any;
 
 
+
   constructor(private httpClient: HttpClient, private livreService: LivreServiceService,
-    private router: Router, private dialog: MatDialog, private dialogService: DialogService) { }
+    private router: Router, private dialog: MatDialog, private dialogService: DialogService  ) { }
 
 
   ngOnInit(): void {

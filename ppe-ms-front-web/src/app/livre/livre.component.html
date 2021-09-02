@@ -23,6 +23,9 @@
                 <th>Photo</th>&nbsp;&nbsp;
                 <th>Prix</th>&nbsp;&nbsp;
                 <th>Quantité</th>&nbsp;&nbsp;
+                <th>Rating</th>&nbsp;&nbsp;
+        
+              
             </tr>
             <tr *ngFor="let l of listLivres._embedded.livres">
                 <td>{{ l.codeLivre }}</td>&nbsp; &nbsp;
@@ -31,8 +34,10 @@
                 <td>{{ l.photoLivre }}</td>&nbsp; &nbsp;
                 <td>{{ l.prixLivre }}</td>&nbsp; &nbsp;
                 <td>{{ l.quantiteLivre }}</td>&nbsp; &nbsp;
+               
+                <td><ngb-rating [max]="5" [(rate)]="rating" [readonly]="false"></ngb-rating></td>
                 <td><button class="btn btn-success">Ajouter au panier</button></td>
-                <td><button class="btn btn-warning">Rate</button></td>
+                <!--<td><button class="btn btn-warning">Rate</button></td>-->
                 <td><button class="btn btn-primary" (click)="updateLivre(l.idLivre)">Modifier</button></td>
                 <td><button class="btn btn-danger" (click)="deleteLivre(l.idLivre)">Supprimer</button></td>
             </tr>

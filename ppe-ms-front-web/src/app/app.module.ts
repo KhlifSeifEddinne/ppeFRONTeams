@@ -16,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -47,7 +48,8 @@ import { HomeComponent } from './home/home.component';*/
     MatDialogModule,
     MatIconModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
 
     /*MatSnackBar,
     MatSnackBarConfig*/
